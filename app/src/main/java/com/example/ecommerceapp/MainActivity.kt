@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnLogin.setOnClickListener {
-            val loginURL = "http://192.168.42.211/EventmanAPI/login_app_user.php?" +
+            val loginURL = "http://192.168.56.1/EventmanAPI/login_app_user.php?" +
                     "email=" +
                     edtLoginEmail.text.toString() +
                     "&pass=" +
@@ -26,7 +26,10 @@ class MainActivity : AppCompatActivity() {
             val requestQ = Volley.newRequestQueue(this@MainActivity)
             val stringRequest = StringRequest(Request.Method.GET, loginURL, Response.Listener { response ->
                 if (response.equals("The user does exist")) {
+                    Person.email = edtLoginEmail.text.toString()
                     Toast.makeText(this@MainActivity, response, Toast.LENGTH_SHORT).show()
+                    val homeIntent = Intent(this@MainActivity, HomeScreen::class.java)
+                    startActivity(homeIntent)
                 } else {
                     val dialogBuilder = AlertDialog.Builder(this)
                     dialogBuilder.setTitle("Message")
@@ -44,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSignUp.setOnClickListener {
-            var SignUpIntent = Intent(this@MainActivity, SignUp::class.java)
+            val SignUpIntent = Intent(this@MainActivity, SignUp::class.java)
             startActivity(SignUpIntent)
         }
     }
