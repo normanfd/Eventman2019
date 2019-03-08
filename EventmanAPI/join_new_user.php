@@ -10,6 +10,7 @@
 		$sqlcommand = $connection->prepare("INSERT INTO app_user_table VALUES (?,?,?)");
 		$sqlcommand->bind_param("sss",$_GET["email"], $_GET["name"], $_GET["pass"]);
 		$sqlcommand->execute();
+		echo 'Congratulations! Registration success'
 	}else{
 		echo "email Address is already exixt";
 	}
