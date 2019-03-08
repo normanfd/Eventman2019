@@ -8,6 +8,6 @@
 	if($loginresult->num_rows == 0){
 		echo "The user does not exixt";
 	}else{
-		echo "The user does exixt";
+		echo "The user does exist";
 	}
  ?>
