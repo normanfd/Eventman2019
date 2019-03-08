@@ -8,10 +8,10 @@
 	
 	if($emailresult->num_rows == 0){
 		$sqlcommand = $connection->prepare("INSERT INTO app_user_table VALUES (?,?,?)");
-		$sqlcommand->bind_param("sss",$_GET["email"], $_GET["name"], $_GET["pass"]);
+		$sqlcommand->bind_param("sss",$_GET["email"], $_GET["username"], $_GET["pass"]);
 		$sqlcommand->execute();
-		echo 'Congratulations! Registration success'
+		echo "Congratulations! Registration success";
 	}else{
-		echo "email Address is already exixt";
+		echo "A user with this Email Address already exists";
 	}
  ?>
