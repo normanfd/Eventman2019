@@ -23,7 +23,7 @@ class HomeScreen : AppCompatActivity() {
             for(jsonObject in 0.until(response.length())) {
                 brandsList.add(response.getJSONObject(jsonObject).getString("brand"))
             }
-            val brandsListAdapter = ArrayAdapter(this@HomeScreen, android.R.layout.simple_list_item_1, brandsList)
+            val brandsListAdapter = ArrayAdapter(this@HomeScreen, R.layout.brand_item_text_view, brandsList)
             brandsListView.adapter = brandsListAdapter
         }, Response.ErrorListener {error ->
             val dialogBuilder = AlertDialog.Builder(this)
