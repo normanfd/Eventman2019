@@ -31,14 +31,14 @@
             android:ems="10"
             android:id="@+id/edtSignUpName"/>
     <EditText
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:drawableRight="@drawable/password"
-        android:hint="Please insert an password"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="#000"
-        android:layout_marginRight="40dp" android:layout_marginLeft="40dp" android:layout_marginTop="10dp"
-        android:id="@+id/edtSignUpPassword"/>
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:drawableRight="@drawable/password"
+            android:hint="Please insert an password"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="#000"
+            android:layout_marginRight="40dp" android:layout_marginLeft="40dp" android:layout_marginTop="10dp"
+            android:id="@+id/edtSignUpPassword"/>
     <EditText
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:drawableRight="@drawable/reenterpassword"
