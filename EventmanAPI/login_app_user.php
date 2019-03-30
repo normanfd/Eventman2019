@@ -1,5 +1,6 @@
 <?php
-	$connection=new mysqli("localhost","root","","online_store_db");
+	include("connect.php");
+	
 	$check_login=$connection->prepare("SELECT * FROM app_user_table WHERE email=? and pass=?");
 	$check_login->bind_param("ss",$_GET["email"],$_GET["pass"]);
 	$check_login->execute();

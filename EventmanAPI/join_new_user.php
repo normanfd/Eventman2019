@@ -1,5 +1,5 @@
-  <?php
-	$connection=new mysqli("localhost","root","","online_store_db");
+<?php
+	include("connect.php");
 	
 	$checkemail= $connection->prepare("SELECT * FROM app_user_table WHERE email=?");
 	$checkemail->bind_param("s",$_GET["email"]);
@@ -14,4 +14,4 @@
 	}else{
 		echo "A user with this Email Address already exists";
 	}
- ?>
+?>
