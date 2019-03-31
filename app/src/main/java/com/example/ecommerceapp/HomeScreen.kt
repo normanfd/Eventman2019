@@ -1,5 +1,6 @@
 package com.example.ecommerceapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -33,5 +34,13 @@ class HomeScreen : AppCompatActivity() {
         })
 
         requestQ.add(jsonAR)
+
+        brandsListView.setOnItemClickListener { adapterView, view, i, l ->
+            val tappedBrand = brandsList.get(i)
+            val intent = Intent(this@HomeScreen, FetchEProductsActivity::class.java)
+
+            intent.putExtra("BRAND", tappedBrand)
+            startActivity(intent)
+        }
     }
 }
