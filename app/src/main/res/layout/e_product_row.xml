@@ -16,17 +16,17 @@
         <TextView
                 android:text="ID"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textId" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/txtId" android:layout_weight="1"
                 android:layout_margin="5dp"/>
         <TextView
                 android:text="Name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textName" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/txtName" android:layout_weight="1"
                 android:layout_margin="5dp"/>
         <TextView
                 android:text="Price"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textPrice" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/txtPrice" android:layout_weight="1"
                 android:layout_margin="5dp"/>
     </LinearLayout>
 
