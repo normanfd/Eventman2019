@@ -20,7 +20,7 @@ class FetchEProductsActivity : AppCompatActivity() {
         val selectedBrand:String = intent.getStringExtra("BRAND")
         txtBrandName.text = "Products of $selectedBrand"
 
-        val productsUrl = "http://10.0.2.2:80/EventmanAPI/fetch_eproducts.php?brand=$selectedBrand"
+        val productsUrl = "http://192.168.42.211/EventmanAPI/fetch_eproducts.php?brand=$selectedBrand"
         val requestQ = Volley.newRequestQueue(this@FetchEProductsActivity)
         val jsonAR = JsonArrayRequest(Request.Method.GET, productsUrl, null, Response.Listener { response ->
             for(productJOIndex in 0.until(response.length())) {

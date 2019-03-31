@@ -17,7 +17,7 @@ class HomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_screen)
 
-        val brandsUrl = "http://10.0.2.2:80/EventmanAPI/fetch_brand.php"
+        val brandsUrl = "http://192.168.42.211/EventmanAPI/fetch_brand.php"
         var brandsList = ArrayList<String>()
         val requestQ = Volley.newRequestQueue(this@HomeScreen)
         val jsonAR = JsonArrayRequest(Request.Method.GET, brandsUrl, null, Response.Listener {response ->

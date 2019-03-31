@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnLogin.setOnClickListener {
-            val loginURL = "http://10.0.2.2:80/EventmanAPI/login_app_user.php?" +
+            val loginURL = "http://192.168.42.211/EventmanAPI/login_app_user.php?" +
                     "email=" +
                     edtLoginEmail.text.toString() +
                     "&pass=" +

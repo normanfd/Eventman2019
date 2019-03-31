@@ -1,5 +1,6 @@
 package com.example.ecommerceapp
 
+import android.app.Activity
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -29,9 +30,19 @@ class EProductAdapter(var context: Context, var arrayList:ArrayList<EProduct>):R
             itemView.txtName.text = name
             itemView.txtPrice.text = price.toString()
 
-            var picUrl = "http://10.0.2.2:80/EventmanAPI/osimages/"
+            var picUrl = "http://192.168.42.211/EventmanAPI/osimages/"
             picUrl = picUrl.replace(" ", "%20")
             Picasso.get().load(picUrl + pictName).into(itemView.imgProduct)
+
+            itemView.imgAdd.setOnClickListener {
+
+                Person.addCartProductID = id
+                var amountFragment = AmountFragment()
+                var fragmentManager = (itemView.context as Activity).fragmentManager
+                amountFragment.show(fragmentManager,"TAG")
+
+
+            }
         }
     }
 }
