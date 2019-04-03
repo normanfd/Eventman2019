@@ -22,7 +22,7 @@ class  SignUp : AppCompatActivity() {
         SignUpBtn.setOnClickListener {
             if (edtSignUpPassword.text.toString().equals(edtSignUpRePassword.text.toString())){
                 //Registration process
-                val SignUpUrl = "http://192.168.42.211/EventmanAPI/join_new_user.php?email="+edtSignUpEmail.text.toString()+ "&username="+edtSignUpName.text.toString()+"&pass=" + edtSignUpPassword.text.toString()
+                val SignUpUrl = "http://192.168.43.135/EventmanAPI/join_new_user.php?email="+edtSignUpEmail.text.toString()+ "&username="+edtSignUpName.text.toString()+"&pass=" + edtSignUpPassword.text.toString()
                 val requestQ = Volley.newRequestQueue(this@SignUp)
                 val StringRequest =StringRequest(Request.Method.GET, SignUpUrl,
                     Response.Listener { response ->

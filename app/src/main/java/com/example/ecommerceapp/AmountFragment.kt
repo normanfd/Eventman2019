@@ -31,7 +31,7 @@ class AmountFragment : android.app.DialogFragment() {
 
         btnAddCart.setOnClickListener {
 
-            var ptoUrl = "http://192.168.42.211/EventmanAPI/insert_temporary_order.php?email=${Person.email}&" +
+            var ptoUrl = "http://192.168.43.135/EventmanAPI/insert_temporary_order.php?email=${Person.email}&" +
                     "product_id=${Person.addCartProductID}&amount=${enterAmount.text.toString()}"
             var requestQ = Volley.newRequestQueue(activity)
             var stringRequest = StringRequest(Request.Method.GET, ptoUrl, Response.Listener { response ->

@@ -30,7 +30,7 @@ class EProductAdapter(var context: Context, var arrayList:ArrayList<EProduct>):R
             itemView.txtName.text = name
             itemView.txtPrice.text = price.toString()
 
-            var picUrl = "http://192.168.42.211/EventmanAPI/osimages/"
+            var picUrl = "http://192.168.43.135/EventmanAPI/osimages/"
             picUrl = picUrl.replace(" ", "%20")
             Picasso.get().load(picUrl + pictName).into(itemView.imgProduct)
 

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_cart_products.*
 import java.util.ArrayList
@@ -19,7 +20,7 @@ class CartProductsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_products)
 
-        var cartProductsUrl = "http://192.168.42.211/EventmanAPI/fetch_temporary_order.php?email=${Person.email}"
+        var cartProductsUrl = "http://192.168.43.135/EventmanAPI/fetch_temporary_order.php?email=${Person.email}"
         var cartProductsList = ArrayList<String>()
         var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
         var jsonAR = JsonArrayRequest(Request.Method.GET, cartProductsUrl, null,Response.Listener {
@@ -57,6 +58,16 @@ class CartProductsActivity : AppCompatActivity() {
             var intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
 
+        }else if(item?.itemId == R.id.declineOrderItem){
+            var deleteUrl = "http://192.168.43.135/EventmanAPI/decline_order.php?email=${Person.email}"
+            var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
+            var stringRequest = StringRequest(Request.Method.GET, deleteUrl, Response.Listener {
+                    response ->
+                    var intent = Intent(this, HomeScreen::class.java)
+                    startActivity(intent)
+            }, Response.ErrorListener {
+                    error -> })
+            requestQ.add(stringRequest)
         }
 
         return super.onOptionsItemSelected(item)
