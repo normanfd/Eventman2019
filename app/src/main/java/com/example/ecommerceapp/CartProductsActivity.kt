@@ -21,7 +21,7 @@ class CartProductsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_products)
 
-        var cartProductsUrl = "http://192.168.43.135/EventmanAPI/fetch_temporary_order.php?email=${Person.email}"
+        var cartProductsUrl = "http://192.168.42.211/EventmanAPI/fetch_temporary_order.php?email=${Person.email}"
         var cartProductsList = ArrayList<String>()
         var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
         var jsonAR = JsonArrayRequest(Request.Method.GET, cartProductsUrl, null,Response.Listener {
@@ -69,17 +69,17 @@ class CartProductsActivity : AppCompatActivity() {
             }, Response.ErrorListener {
                     error -> })
             requestQ.add(stringRequest)
-        } else if(item?.itemId == R.id.verivyOrderItem){
-            var verifyorderUrl = "http://192.168.43.135/EventmanAPI/verify_order.php?email==${Person.email}"
+        } else if(item?.itemId == R.id.verifyOrderItem){
+            var verifyOrderUrl = "http://192.168.43.135/EventmanAPI/verify_order.php?email==${Person.email}"
             var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
-            var stringRequest = StringRequest(Request.Method.GET, verifyorderUrl, Response.Listener {
-                    response ->
+            var stringRequest = StringRequest(Request.Method.GET, verifyOrderUrl, Response.Listener { response ->
                 var intent = Intent(this, FinalizeShoppingActivity::class.java)
-                Toast.makeText(this,response,Toast.LENGTH_LONG).show()
+                Toast.makeText(this, response, Toast.LENGTH_LONG).show()
                 intent.putExtra("LATEST_INVOICE_NUMBER",response)
                 startActivity(intent)
-            }, Response.ErrorListener {
-                    error -> })
+            }, Response.ErrorListener { error ->
+
+            })
             requestQ.add(stringRequest)
         }
 
