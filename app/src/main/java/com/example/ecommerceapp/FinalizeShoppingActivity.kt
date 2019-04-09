@@ -15,12 +15,16 @@ class FinalizeShoppingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finalize_shopping)
 
-        var calculateTotalPriceUrl = "http://192.168.43.135/EventmanAPI/calculate_total_price.php?invoice_num=${intent.getStringExtra("LATEST_INVOICE_NUMBER")}"
+        var calculateTotalPriceUrl = "http://192.168.42.211/EventmanAPI/calculate_total_price.php?" +
+                "invoice_num=${intent.getStringExtra("LATEST_INVOICE_NUMBER")}"
         var requestQ = Volley.newRequestQueue(this@FinalizeShoppingActivity)
         var stringRequest = StringRequest(Request.Method.GET, calculateTotalPriceUrl, Response.Listener { response ->
-            btnPayment.text = "Pay $$response via Paypal Now"
+            btnPayment.text = "Pay $response via Paypal Now"
         }, Response.ErrorListener { error ->
+
+
         })
+
         requestQ.add(stringRequest)
 
     }

@@ -60,7 +60,7 @@ class CartProductsActivity : AppCompatActivity() {
             startActivity(intent)
 
         }else if(item?.itemId == R.id.declineOrderItem){
-            var deleteUrl = "http://192.168.43.135/EventmanAPI/decline_order.php?email=${Person.email}"
+            var deleteUrl = "http://192.168.42.211/EventmanAPI/decline_order.php?email=${Person.email}"
             var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
             var stringRequest = StringRequest(Request.Method.GET, deleteUrl, Response.Listener {
                     response ->
@@ -70,7 +70,7 @@ class CartProductsActivity : AppCompatActivity() {
                     error -> })
             requestQ.add(stringRequest)
         } else if(item?.itemId == R.id.verifyOrderItem){
-            var verifyOrderUrl = "http://192.168.43.135/EventmanAPI/verify_order.php?email==${Person.email}"
+            var verifyOrderUrl = "http://192.168.42.211/EventmanAPI/verify_order.php?email=${Person.email}"
             var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
             var stringRequest = StringRequest(Request.Method.GET, verifyOrderUrl, Response.Listener { response ->
                 var intent = Intent(this, FinalizeShoppingActivity::class.java)
