@@ -15,10 +15,14 @@
 
 Use case diagram
 
+<img src="https://github.com/normanfd/Eventman2019/blob/master/img/use_case_diagram.jpg">
+
 # Activity Diagram
 [`^ kembali ke atas ^`](#)
 
 Activity diagram
+
+<img src="https://github.com/normanfd/Eventman2019/blob/master/img/Diagram_Activity.jpg">
 
 # Sequence Diagram
 [`^ kembali ke atas ^`](#)
@@ -29,6 +33,8 @@ Sequence Diagram
 [`^ kembali ke atas ^`](#)
 
 Class diagram
+
+<img src="https://github.com/normanfd/Eventman2019/blob/master/img/class_diagram.jpg">
 
 # Pembahasan
 [`^ kembali ke atas ^`](#)
