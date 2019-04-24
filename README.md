@@ -1,4 +1,0 @@
-# EventmanKotlin
-Project PSBO
-
-Testing
