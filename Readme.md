@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/10/03114759/Best-event-apps.jpg"></h1>
+<h1 align="center">Eventman - Project Akhir PSBO</h1>
 
 [Sekilas Tentang](#sekilas-tentang) | [Use Case Diagram](#use-case-diagram) | [Activity Diagram](#activity-diagram) |  [Sequence Diagram](#sequence-diagram) | [Class Diagram](#class-diagram) | [Pembahasan](#pembahasan)
 :---:|:---:|:---:|:---:|:---:|:---:
@@ -6,8 +6,7 @@
 # Sekilas Tentang
 [`^ kembali ke atas ^`](#)
 
-<img src="https://github.com/miqbals1649/mediaWiki/blob/master/Komdat/MW%201.PNG">
-
+<img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/10/03114759/Best-event-apps.jpg">
 **Eventman** adalah perangkat lunak yang ...
 
 # Use Case Diagram
