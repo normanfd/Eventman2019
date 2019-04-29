@@ -102,9 +102,9 @@ public class HomeActivity extends AppCompatActivity
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
-//                                intent.putExtra("pid", model.getPid());
-//                                startActivity(intent);
+                                Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
                             }
                         });
                     }
