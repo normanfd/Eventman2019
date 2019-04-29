@@ -20,8 +20,10 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.eventman2019.MainActivity;
+import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
+import com.example.eventman2019.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -79,6 +81,45 @@ public class HomeActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //nantinya bakal ditampilin ke recycleview
+        //import dari firebaseUI dengan query tertentu
+        FirebaseRecyclerOptions<Product> options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                        .setQuery(ProductRef, Product.class)
+                        .build();
+        FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
+                        holder.txtProductName.setText(model.getProductname());
+                        holder.txtProductDescription.setText(model.getDescription());
+                        holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
+                        Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+//                                Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+//                                intent.putExtra("pid", model.getPid());
+//                                startActivity(intent);
+                            }
+                        });
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent,false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+                        return holder;
+                    }
+                };
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
