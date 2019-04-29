@@ -88,8 +88,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void AllowAccessAccount(final String phone, final String password) {
         if(chkBoxRememberMe.isChecked()){
-//            Paper.book().write(Prevalent.UserPhoneKey,phone);
-//            Paper.book().write(Prevalent.UserPasswordKey,password);
+            Paper.book().write(Prevalent.UserPhoneKey,phone);
+            Paper.book().write(Prevalent.UserPasswordKey,password);
         }
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
