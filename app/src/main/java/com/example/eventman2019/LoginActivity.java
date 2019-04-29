@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Users;
+import com.example.eventman2019.Prevalent.Prevalent;
 import com.google.firebase.database.*;
 import com.rey.material.widget.CheckBox;
 import io.paperdb.Paper;
@@ -101,16 +102,16 @@ public class LoginActivity extends AppCompatActivity {
                     if(UserData.getPhone().equals(phone)){
                         if(UserData.getPassword().equals(password)){
                             if(ParentDbName.equals("Admins")){
-//                                Toast.makeText(loginActivity.this, "Welcome Admin, you are Login succesfully..", Toast.LENGTH_SHORT).show();
-//                                loadingBar.dismiss();
-//                                Intent intent = new Intent(loginActivity.this,AdminCategoryActivity.class);
+                                Toast.makeText(LoginActivity.this, "Welcome Admin, you are Login succesfully..", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+//                                Intent intent = new Intent(LoginActivity.this,AdminCategoryActivity.class);
 //                                startActivity(intent);
                             }else {
-//                                Toast.makeText(loginActivity.this, "Login succesfully..", Toast.LENGTH_SHORT).show();
-//                                loadingBar.dismiss();
-//                                Intent intent = new Intent(loginActivity.this,HomeActivity.class);
-//                                Prevalent.CurrentOnlineUser = UserData;
-//                                startActivity(intent);
+                                Toast.makeText(LoginActivity.this, "Login succesfully..", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                Prevalent.CurrentOnlineUser = UserData;
+                                startActivity(intent);
                             }
                         }
                         else{
