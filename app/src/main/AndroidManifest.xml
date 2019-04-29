@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.eventman2019">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.eventman2019">
 
     <application
             android:allowBackup="true"
@@ -9,18 +9,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".AdminCategoryActivity">
         </activity>
         <activity android:name=".AdminAddNewProductActivity">
         </activity>
-        <activity android:name=".HomeActivity">
-=======
         <activity
                 android:name=".HomeActivity"
                 android:label="@string/title_activity_home"
-                android:theme="@style/AppTheme.NoActionBar">
->>>>>>> 0f8713f377ca69de0dcc38d47b1f619e79000bb5
+                android:theme="@style/AppTheme.NoActionBar" tools:ignore="DuplicateActivity">
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
