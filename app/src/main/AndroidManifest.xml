@@ -11,6 +11,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".SettingsActivity">
+
+        </activity>
+
+        <activity android:name=".ProductDetailActivity">
+
         </activity>
         <activity android:name=".AdminCategoryActivity">
         </activity>
