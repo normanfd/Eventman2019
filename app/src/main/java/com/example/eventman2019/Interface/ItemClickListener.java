@@ -8,5 +8,5 @@ import android.view.View;
 // signature method yang sama pada banyak class, class tersebut harus diturunkan
 // dari sebuah abstract class atau object interface.
 public interface ItemClickListener {
-    void onClick(View view, int position, boolean isLongCLick); 
+    void onClick(View view, int position, boolean isLongCLick);
 }
