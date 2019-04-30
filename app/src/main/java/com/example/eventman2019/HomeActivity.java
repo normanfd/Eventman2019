@@ -40,12 +40,24 @@ public class HomeActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    private String type = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null)
+        {
+            type = getIntent().getExtras().get("Admin").toString();
+        }
+
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         Paper.init(this);
@@ -72,8 +84,10 @@ public class HomeActivity extends AppCompatActivity
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.CurrentOnlineUser.getName());
-        Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.ic_person).into(profileImageView);
+        if (!type.equals("Admin")){
+            userNameTextView.setText(Prevalent.CurrentOnlineUser.getName());
+            Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.ic_person).into(profileImageView);
+        }
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -99,12 +113,22 @@ public class HomeActivity extends AppCompatActivity
                         holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
+
+
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
-                                intent.putExtra("pid", model.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")){
+                                    Intent intent = new Intent(HomeActivity.this,AdminMaintenanceActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }
