@@ -51,16 +51,16 @@ public class CartActivity extends AppCompatActivity {
         txtTotalAmount = (TextView) findViewById(R.id.total_price);
         txtmessage1 = (TextView) findViewById(R.id.message1);
 
-//        nextProcessBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                txtTotalAmount.setText( "Total Price = "+ String.valueOf(overTotalPrice));
-//                Intent intent = new Intent(CartActivity.this, ConfirmFinalActivity.class);
-//                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        nextProcessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtTotalAmount.setText( "Total Price = "+ String.valueOf(overTotalPrice));
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
