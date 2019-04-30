@@ -35,7 +35,23 @@ public class AdminCategoryActivity extends AppCompatActivity {
         checkOrderBtn = (Button) findViewById(R.id.admin_check_order_btn);
 
 
+        AdminlogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
+        checkOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrderActivity.class);
+                startActivity(intent);
+            }
+        });
         tShirts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
