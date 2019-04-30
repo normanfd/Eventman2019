@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         if(UserPhoneKey != "" && UserPasswordKey != ""){
             if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
                 AllowAccess(UserPhoneKey,UserPasswordKey);
-//                loadingBar.setTitle("Already Logged in");
-//                loadingBar.setMessage("please wait...");
-//                loadingBar.setCanceledOnTouchOutside(false);
-//                loadingBar.show();
+                loadingBar.setTitle("Already Logged in");
+                loadingBar.setMessage("please wait...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
             }
         }
     }

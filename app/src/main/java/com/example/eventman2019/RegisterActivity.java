@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(!(dataSnapshot.child("Users").child(phone).exists())){
-                    //Hashmap<key,value>
+//                    Hashmap<key,value>
                     HashMap<String, Object> UserDataMap = new HashMap<>();
                     //fill value to hashmap
                     UserDataMap.put("phone",phone);
@@ -91,8 +91,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterActivity.this, "Congratulation your account has been created.", Toast.LENGTH_SHORT).show();
                                         loadingBar.dismiss();
-//                                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-//                                        startActivity(intent);
+                                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                                        startActivity(intent);
                                     }
                                     else {
                                         loadingBar.dismiss();
@@ -106,8 +106,8 @@ public class RegisterActivity extends AppCompatActivity {
                     loadingBar.dismiss();
                     Toast.makeText(RegisterActivity.this, "please try again using another phone number", Toast.LENGTH_SHORT).show();
 
-//                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
                 }
             }
 
