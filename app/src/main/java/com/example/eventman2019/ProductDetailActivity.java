@@ -38,6 +38,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         productID =getIntent().getStringExtra("pid");
+
         numberBtn = (ElegantNumberButton)findViewById(R.id.number_btn);
         product_Image = (ImageView) findViewById(R.id.product_image_detail);
         productPriceDetail= (TextView) findViewById(R.id.product_price_detail);
