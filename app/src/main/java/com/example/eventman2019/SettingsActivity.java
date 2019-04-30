@@ -89,7 +89,7 @@ public class SettingsActivity extends AppCompatActivity {
         userMap.put("phoneOrder", userPhoneEditText.getText().toString());
         ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
 
-        startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
         Toast.makeText(SettingsActivity.this, "Profile info updated", Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -162,7 +162,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         progressDialog.dismiss();
 
-                        Intent intent = new Intent(SettingsActivity.this,MainActivity.class);
+                        Intent intent = new Intent(SettingsActivity.this,HomeActivity.class);
                         startActivity(intent);
                         Toast.makeText(SettingsActivity.this, "Profile info updated", Toast.LENGTH_SHORT).show();
                         finish();
