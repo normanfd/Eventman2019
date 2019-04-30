@@ -50,15 +50,15 @@ public class AdminNewOrderActivity extends AppCompatActivity {
                         holder.userTotalAmount.setText("Total Amount= " + model.getTotalAmount());
                         holder.userDateTime.setText("Order at = " + model.getDate() + " " + model.getTime());
                         holder.userShippingAddress.setText("Shipping address = " + model.getAddress() + " " + model.getCity());
-//                        holder.showOrdersBtn.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                String uID = getRef(position).getKey();
-//                                Intent intent = new Intent(adminNewOrderActivity.this, AdminUserProductActivity.class);
-//                                intent.putExtra("uid", uID);
-//                                startActivity(intent);
-//                            }
-//                        });
+                        holder.showOrdersBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String uID = getRef(position).getKey();
+                                Intent intent = new Intent(AdminNewOrderActivity.this, AdminUserProductActivity.class);
+                                intent.putExtra("uid", uID);
+                                startActivity(intent);
+                            }
+                        });
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
