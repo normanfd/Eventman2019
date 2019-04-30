@@ -50,14 +50,14 @@ public class HomeActivity extends AppCompatActivity
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         Paper.init(this);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -147,8 +147,8 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_cart) {
-//            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_search) {
 //            Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
 //            startActivity(intent);
