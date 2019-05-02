@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     private Button CreateAccountButton;
-    private EditText InputName, InputPhoneNumber, InputPassword;
+    private EditText InputName, InputPhoneNumber, InputPassword, InputEmail;
     private ProgressDialog loadingBar;
 
     @Override
@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         InputName = (EditText) findViewById(R.id.register_username_input);
         InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
         InputPassword = (EditText) findViewById(R.id.register_password_input);
+        InputEmail = (EditText) findViewById(R.id.register_email_input);
         loadingBar = new ProgressDialog(this);
 
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +51,13 @@ public class RegisterActivity extends AppCompatActivity {
         String name = InputName.getText().toString();
         String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
+        String email = InputEmail.getText().toString();
 
         if(TextUtils.isEmpty(name)){
             Toast.makeText(this, "Please write your name", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Please write your email", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phone)){
             Toast.makeText(this, "Please write your phone number", Toast.LENGTH_SHORT).show();
@@ -66,11 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            validatephonenumber(name, phone, password);
+            validatephonenumber(name, email, phone, password);
         }
     }
 
-    private void validatephonenumber(final String name, final String phone, final String password) {
+    private void validatephonenumber(final String name, final String email, final String phone, final String password) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -83,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                     UserDataMap.put("phone",phone);
                     UserDataMap.put("password",password);
                     UserDataMap.put("name",name);
+                    UserDataMap.put("email",email);
 
                     RootRef.child("Users").child(phone).updateChildren(UserDataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {

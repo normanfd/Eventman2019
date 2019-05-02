@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.eventman2019.MainActivity;
+import com.example.eventman2019.Model.Konveksi;
 import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
@@ -102,14 +103,14 @@ public class HomeActivity extends AppCompatActivity
         super.onStart();
         //nantinya bakal ditampilin ke recycleview
         //import dari firebaseUI dengan query tertentu
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(ProductRef, Product.class)
+        FirebaseRecyclerOptions<Konveksi> options =
+                new FirebaseRecyclerOptions.Builder<Konveksi>()
+                        .setQuery(ProductRef, Konveksi.class)
                         .build();
-        FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+        FirebaseRecyclerAdapter<Konveksi, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Konveksi, ProductViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Konveksi model) {
                         holder.txtProductName.setText(model.getProductname());
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");

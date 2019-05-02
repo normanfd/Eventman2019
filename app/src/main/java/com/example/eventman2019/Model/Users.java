@@ -1,22 +1,20 @@
 package com.example.eventman2019.Model;
 
 public class Users {
-    private String name, phone, password, image, address;
+    private String name, phone, email, password, image, address;
 
-    //default constructor without parameters
     public Users() {
     }
-    //default constructor with parameters
 
-    public Users(String name, String phone, String password, String image, String address) {
+    public Users(String name, String phone, String email, String password, String image, String address) {
         this.name = name;
         this.phone = phone;
+        this.email = email;
         this.password = password;
         this.image = image;
         this.address = address;
     }
 
-    //getter and setter
     public String getName() {
         return name;
     }
@@ -31,6 +29,14 @@ public class Users {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -57,4 +63,3 @@ public class Users {
         this.address = address;
     }
 }
-
