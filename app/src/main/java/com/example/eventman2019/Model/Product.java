@@ -4,6 +4,7 @@ public class Product {
     private String category, date, description, image, pid, price, productname, productvendor, time ;
 
     public Product() {
+
     }
 
     public Product(String category, String date, String description, String image, String pid, String price, String productname, String productvendor, String time) {

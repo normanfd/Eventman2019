@@ -13,6 +13,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".AddKonveksiActivity">
+        </activity>
+        <activity android:name=".AddKonsumsiActivity">
+        </activity>
+        <activity android:name=".AddLogistikActivity">
+        </activity>
         <activity android:name=".AdminMaintenanceActivity">
         </activity>
         <activity android:name=".SearchProductsActivity">
