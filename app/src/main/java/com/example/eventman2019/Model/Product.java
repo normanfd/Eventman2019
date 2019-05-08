@@ -1,13 +1,13 @@
 package com.example.eventman2019.Model;
 
 public class Product {
-    private String category, date, description, image, pid, price, productname, productvendor, time ;
+    private String category, date, description, image, pid, price, productname, time ;
 
     public Product() {
 
     }
 
-    public Product(String category, String date, String description, String image, String pid, String price, String productname, String productvendor, String time) {
+    public Product(String category, String date, String description, String image, String pid, String price, String productname, String time) {
         this.category = category;
         this.date = date;
         this.description = description;
@@ -15,7 +15,6 @@ public class Product {
         this.pid = pid;
         this.price = price;
         this.productname = productname;
-        this.productvendor = productvendor;
         this.time = time;
     }
 
@@ -73,14 +72,6 @@ public class Product {
 
     public void setProductname(String productname) {
         this.productname = productname;
-    }
-
-    public String getProductvendor() {
-        return productvendor;
-    }
-
-    public void setProductvendor(String productvendor) {
-        this.productvendor = productvendor;
     }
 
     public String getTime() {

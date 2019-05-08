@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.eventman2019.Model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -82,15 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(!(dataSnapshot.child("Users").child(phone).exists())){
-//                    Hashmap<key,value>
-                    HashMap<String, Object> UserDataMap = new HashMap<>();
-                    //fill value to hashmap
-                    UserDataMap.put("phone",phone);
-                    UserDataMap.put("password",password);
-                    UserDataMap.put("name",name);
-                    UserDataMap.put("email",email);
-
-                    RootRef.child("Users").child(phone).updateChildren(UserDataMap)
+                    //Menyimpan User baru kedalam database
+                    Users user = new Users(name, email, phone, password,null,null);
+                    RootRef.child("Users").child(phone).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
