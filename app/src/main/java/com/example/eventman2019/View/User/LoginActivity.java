@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.User;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Users;
 import com.example.eventman2019.Prevalent.Prevalent;
+import com.example.eventman2019.R;
+import com.example.eventman2019.View.Admin.AdminCategoryActivity;
 import com.google.firebase.database.*;
 import com.rey.material.widget.CheckBox;
 import io.paperdb.Paper;
@@ -104,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(ParentDbName.equals("Admins")){
                                 Toast.makeText(LoginActivity.this, "Welcome Admin, you are Login succesfully..", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-                                Intent intent = new Intent(LoginActivity.this,AdminCategoryActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
                             }else {
                                 Toast.makeText(LoginActivity.this, "Login succesfully..", Toast.LENGTH_SHORT).show();

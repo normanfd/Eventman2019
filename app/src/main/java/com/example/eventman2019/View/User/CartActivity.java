@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.User;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Cart;
 import com.example.eventman2019.Prevalent.Prevalent;
+import com.example.eventman2019.R;
 import com.example.eventman2019.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -26,8 +27,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.nio.file.attribute.DosFileAttributes;
 
 public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;

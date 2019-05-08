@@ -1,10 +1,9 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.User;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,11 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.example.eventman2019.MainActivity;
 import com.example.eventman2019.Model.Konveksi;
-import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
+import com.example.eventman2019.View.Admin.AdminMaintenanceActivity;
 import com.example.eventman2019.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -122,7 +120,7 @@ public class HomeActivity extends AppCompatActivity
                             @Override
                             public void onClick(View v) {
                                 if (type.equals("Admin")){
-                                    Intent intent = new Intent(HomeActivity.this,AdminMaintenanceActivity.class);
+                                    Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
                                     intent.putExtra("pid", model.getPid());
                                     startActivity(intent);
                                 }

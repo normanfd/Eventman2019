@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.Admin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.eventman2019.Model.Order;
+import com.example.eventman2019.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;

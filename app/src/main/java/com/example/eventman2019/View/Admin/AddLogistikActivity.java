@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.Admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Product;
+import com.example.eventman2019.R;
 import com.google.android.gms.tasks.*;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +24,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class AddLogistikActivity extends AppCompatActivity {
 

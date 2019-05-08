@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.Admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Product;
+import com.example.eventman2019.R;
 import com.google.android.gms.tasks.*;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,9 +24,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 
-public class AddKonveksiActivity extends AppCompatActivity {
+public class AddKonsumsiActivity extends AppCompatActivity {
 
     private String CategoryName, Description, Price, Productname, saveCurrentDate, saveCurrentTime;
     private Button AddNewProductButton;
@@ -113,13 +113,13 @@ public class AddKonveksiActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
-                Toast.makeText(AddKonveksiActivity.this, "Error" + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddKonsumsiActivity.this, "Error" + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<com.google.firebase.storage.UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(com.google.firebase.storage.UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(AddKonveksiActivity.this, "Image uploaded succesfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddKonsumsiActivity.this, "Image uploaded succesfully", Toast.LENGTH_SHORT).show();
                 //get Link Image
                 Task<Uri> urlTask = UploadTask.continueWithTask(new Continuation<com.google.firebase.storage.UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -136,7 +136,7 @@ public class AddKonveksiActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if(task.isSuccessful()){
                             DownloadImageUrl = task.getResult().toString();
-                            Toast.makeText(AddKonveksiActivity.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddKonsumsiActivity.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
                             SaveProductInfoToDatabase();
                         }
                     }
@@ -156,13 +156,13 @@ public class AddKonveksiActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             loadingBar.dismiss();
-                            Toast.makeText(AddKonveksiActivity.this, "Product is added succesfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(AddKonveksiActivity.this,AdminCategoryActivity.class);
+                            Toast.makeText(AddKonsumsiActivity.this, "Product is added succesfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(AddKonsumsiActivity.this,AdminCategoryActivity.class);
                             startActivity(intent);
                         }else{
                             loadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(AddKonveksiActivity.this, "Error " + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddKonsumsiActivity.this, "Error " + message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

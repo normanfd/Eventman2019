@@ -13,43 +13,43 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".AddKonveksiActivity">
+        <activity android:name=".View.Admin.AddKonveksiActivity">
         </activity>
-        <activity android:name=".AddKonsumsiActivity">
+        <activity android:name=".View.Admin.AddKonsumsiActivity">
         </activity>
-        <activity android:name=".AddLogistikActivity">
+        <activity android:name=".View.Admin.AddLogistikActivity">
         </activity>
-        <activity android:name=".AdminMaintenanceActivity">
+        <activity android:name=".View.Admin.AdminMaintenanceActivity">
         </activity>
-        <activity android:name=".SearchProductsActivity">
+        <activity android:name=".View.User.SearchProductsActivity">
         </activity>
-        <activity android:name=".AdminUserProductActivity">
+        <activity android:name=".View.Admin.AdminUserProductActivity">
         </activity>
-        <activity android:name=".AdminNewOrderActivity">
+        <activity android:name=".View.Admin.AdminNewOrderActivity">
         </activity>
-        <activity android:name=".ConfirmFinalOrderActivity">
+        <activity android:name=".View.User.ConfirmFinalOrderActivity">
         </activity>
-        <activity android:name=".CartActivity">
+        <activity android:name=".View.User.CartActivity">
         </activity>
-        <activity android:name=".SettingsActivity">
+        <activity android:name=".View.User.SettingsActivity">
         </activity>
-        <activity android:name=".ProductDetailActivity">
+        <activity android:name=".View.User.ProductDetailActivity">
         </activity>
-        <activity android:name=".AdminCategoryActivity">
+        <activity android:name=".View.Admin.AdminCategoryActivity">
         </activity>
-        <activity android:name=".AdminAddNewProductActivity">
+        <activity android:name=".View.Admin.AdminAddNewProductActivity">
         </activity>
         <activity
-                android:name=".HomeActivity"
+                android:name=".View.User.HomeActivity"
                 android:label="@string/title_activity_home"
                 android:theme="@style/AppTheme.NoActionBar"
                 tools:ignore="DuplicateActivity">
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".View.User.LoginActivity">
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".View.User.RegisterActivity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".View.User.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

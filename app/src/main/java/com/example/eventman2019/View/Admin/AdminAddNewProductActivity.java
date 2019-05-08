@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.Admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.eventman2019.Model.Product;
+import com.example.eventman2019.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,7 +29,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
 

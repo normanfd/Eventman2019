@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.User;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Users;
 import com.example.eventman2019.Prevalent.Prevalent;
+import com.example.eventman2019.R;
 import com.google.firebase.database.*;
 import io.paperdb.Paper;
 

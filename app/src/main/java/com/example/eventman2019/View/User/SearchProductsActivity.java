@@ -1,4 +1,4 @@
-package com.example.eventman2019;
+package com.example.eventman2019.View.User;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import com.example.eventman2019.Model.Product;
+import com.example.eventman2019.R;
 import com.example.eventman2019.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
