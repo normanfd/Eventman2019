@@ -5,13 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
         tools:context=".View.Admin.AdminAddNewProductActivity">
-=======
-        tools:context=".AddKonveksiActivity">
->>>>>>> 4328d36379a1d3b1d175c027d9fd64451d21d420
-
-
 
     <ImageView
             android:id="@+id/select_product_image"
