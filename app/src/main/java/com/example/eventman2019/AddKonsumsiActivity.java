@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.example.eventman2019.Model.Product;
 import com.google.android.gms.tasks.*;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -145,16 +146,11 @@ public class AddKonsumsiActivity extends AppCompatActivity {
     }
 
     private void SaveProductInfoToDatabase() {
-        HashMap<String, Object> ProductMap = new HashMap<>();
-        ProductMap.put("pid", productRandomKey);
-        ProductMap.put("date",saveCurrentDate);
-        ProductMap.put("time",saveCurrentTime);
-        ProductMap.put("description", Description);
-        ProductMap.put("image", DownloadImageUrl);
-        ProductMap.put("price",Price);
-        ProductMap.put("productname", Productname);
+        Product product = new Product(CategoryName, saveCurrentDate,
+                Description, DownloadImageUrl, productRandomKey,
+                Price,Productname, saveCurrentTime);
 
-        ProductRef.child("Konsumsi").child(productRandomKey).updateChildren(ProductMap)
+        ProductRef.child(CategoryName).child(productRandomKey).setValue(product)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
