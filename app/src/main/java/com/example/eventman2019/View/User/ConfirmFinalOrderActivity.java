@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.eventman2019.Model.Order;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -76,17 +77,26 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
                 .child("Orders")
                 .child((Prevalent.CurrentOnlineUser.getPhone()));
-
-        HashMap<String, Object> orderMap = new HashMap<>();
-        orderMap.put("totalAmount",totalAmount);
-        orderMap.put("name", nameEditText.getText().toString());
-        orderMap.put("phone", phoneEditText.getText().toString());
-        orderMap.put("address", addressEditText.getText().toString());
-        orderMap.put("city", cityEditText.getText().toString());
-        orderMap.put("date", saveCurrentDate);
-        orderMap.put("time", saveCurrentTime);
-        orderMap.put("state","not shipped");
-        ordersRef.updateChildren(orderMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            Order orderMap = new Order(
+                    nameEditText.getText().toString(),
+                    phoneEditText.getText().toString(),
+                    addressEditText.getText().toString(),
+                    cityEditText.getText().toString(),
+                    "not shipped",
+                    saveCurrentDate,
+                    saveCurrentTime,
+                    totalAmount
+                    );
+//        HashMap<String, Object> orderMap = new HashMap<>();
+//        orderMap.put("totalAmount",totalAmount);
+//        orderMap.put("name", nameEditText.getText().toString());
+//        orderMap.put("phone", phoneEditText.getText().toString());
+//        orderMap.put("address", addressEditText.getText().toString());
+//        orderMap.put("city", cityEditText.getText().toString());
+//        orderMap.put("date", saveCurrentDate);
+//        orderMap.put("time", saveCurrentTime);
+//        orderMap.put("state","not shipped");
+        ordersRef.setValue(orderMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
