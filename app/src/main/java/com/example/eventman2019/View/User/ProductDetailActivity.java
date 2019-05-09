@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.eventman2019.Model.Cart;
 import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
@@ -77,24 +78,19 @@ public class ProductDetailActivity extends AppCompatActivity {
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("cart list");
-        final HashMap<String, Object> cartMap = new HashMap<>();
-        cartMap.put("pid",productID);
-        cartMap.put("productName", productNameDetail.getText().toString());
-        cartMap.put("price", productPriceDetail.getText().toString());
-        cartMap.put("date", saveCurrentDate);
-        cartMap.put("time", saveCurrentTime);
-        cartMap.put("quantity", numberBtn.getNumber());
-        cartMap.put("discount", "");
+        final Cart cartMap = new Cart(productID, productNameDetail.getText().toString(),
+                productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime);
+
         cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
                 .child("Products").child(productID)
-                .updateChildren(cartMap)
+                .setValue(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
                                     .child("Products").child(productID)
-                                    .updateChildren(cartMap)
+                                    .setValue(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
