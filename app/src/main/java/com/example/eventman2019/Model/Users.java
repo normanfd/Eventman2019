@@ -1,7 +1,5 @@
 package com.example.eventman2019.Model;
 
-import static com.example.eventman2019.Model.Hash.sha512;
-
 public class Users {
     private String name, phone, email, password, image, address;
 
@@ -12,7 +10,7 @@ public class Users {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.password = sha512(password);
+        this.password = Hash.sha512(password);
         this.image = image;
         this.address = address;
     }
@@ -45,7 +43,7 @@ public class Users {
         return password;
     }
 
-    public void setPassword(String password) throws Exception { this.password = sha512(password); }
+    public void setPassword(String password) throws Exception { this.password = Hash.sha512(password); }
 
     public String getImage() {
         return image;
