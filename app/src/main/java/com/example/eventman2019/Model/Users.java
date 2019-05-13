@@ -45,9 +45,7 @@ public class Users {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) throws Exception { this.password = sha512(password); }
 
     public String getImage() {
         return image;
