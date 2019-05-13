@@ -76,7 +76,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginUser() throws Exception {
         String phone = InputPhoneNumber.getText().toString();
-        String password = sha512(InputPassword.getText().toString());
+        // temporary solution, karena class Users dipakai
+        // pada saat register dan login sehingga ketika mengambil data
+        // dari database password mengalami hashing dua kali
+        String password = sha512(sha512(InputPassword.getText().toString()));
 
         if(TextUtils.isEmpty(phone))
         {
