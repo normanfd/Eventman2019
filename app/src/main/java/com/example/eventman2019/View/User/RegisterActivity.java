@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please write your name", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(email)){
-            Toast.makeText(this, "Please write your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write your email address", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phone)){
             Toast.makeText(this, "Please write your phone number", Toast.LENGTH_SHORT).show();
@@ -66,8 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please write your password", Toast.LENGTH_SHORT).show();
         }
         else{
-            loadingBar.setTitle("create account");
-            loadingBar.setMessage("please wait, while we are check credentials..");
+            loadingBar.setTitle("Create account");
+            loadingBar.setMessage("Please wait while we are checking your credentials..");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
@@ -94,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(RegisterActivity.this, "Congratulation your account has been created.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "Your account has been created", Toast.LENGTH_SHORT).show();
                                         loadingBar.dismiss();
                                         Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                         startActivity(intent);
@@ -107,9 +107,9 @@ public class RegisterActivity extends AppCompatActivity {
                             });
                 }
                 else {
-                    Toast.makeText(RegisterActivity.this, "this "+ phone + " already exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Phone number "+ phone + " already exist", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
-                    Toast.makeText(RegisterActivity.this, "please try again using another phone number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Please use different phone number", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                     startActivity(intent);
