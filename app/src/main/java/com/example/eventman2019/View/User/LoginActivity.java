@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         else{
             loadingBar.setTitle("Login account");
-            loadingBar.setMessage("please wait, while we are check credentials..");
+            loadingBar.setMessage("Please wait while we are checking your credentials..");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
             AllowAccessAccount(phone, password);
@@ -104,12 +104,12 @@ public class LoginActivity extends AppCompatActivity {
                     if(UserData.getPhone().equals(phone)){
                         if(UserData.getPassword().equals(password)){
                             if(ParentDbName.equals("Admins")){
-                                Toast.makeText(LoginActivity.this, "Welcome Admin, you are Login succesfully..", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in succesfully", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                                 Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
                             }else {
-                                Toast.makeText(LoginActivity.this, "Login succesfully..", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                 Prevalent.CurrentOnlineUser = UserData;
@@ -118,13 +118,13 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else{
                             loadingBar.dismiss();
-                            Toast.makeText(LoginActivity.this, "Password is  incorrect", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
                 else
                 {
-                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account with phone number " + phone + " does not exist", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
             }
