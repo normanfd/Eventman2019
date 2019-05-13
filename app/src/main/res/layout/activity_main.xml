@@ -4,13 +4,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/white"
+                android:theme="@style/AppTheme.NoActionBar"
                 tools:context=".View.User.MainActivity">
 
     <ImageView
             android:id="@+id/app_logo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/eventman"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="sss" />
@@ -23,7 +24,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="281dp"
             android:layout_marginEnd="97dp"
-            android:text="Spread the happiness"
+            android:text="Make It Simple"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="22sp"
