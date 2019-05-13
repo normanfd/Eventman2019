@@ -3,6 +3,7 @@ import java.security.MessageDigest;
 
 public class Hash {
     public static String sha512(String s) throws Exception {
+        s = addSalt(s);
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] digest = md.digest(s.getBytes());
         StringBuilder sb = new StringBuilder();
