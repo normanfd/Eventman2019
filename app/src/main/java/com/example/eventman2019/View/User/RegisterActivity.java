@@ -83,7 +83,12 @@ public class RegisterActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(!(dataSnapshot.child("Users").child(phone).exists())){
                     //Menyimpan User baru kedalam database
-                    Users user = new Users(name, email, phone, password,null,null);
+                    Users user = null;
+                    try {
+                        user = new Users(name, phone, email, password,null,null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     RootRef.child("Users").child(phone).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.eventman2019.Model.Hash;
 import com.example.eventman2019.Model.Users;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
@@ -19,6 +18,8 @@ import com.example.eventman2019.View.Admin.AdminCategoryActivity;
 import com.google.firebase.database.*;
 import com.rey.material.widget.CheckBox;
 import io.paperdb.Paper;
+
+import static com.example.eventman2019.Model.Hash.sha512;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginUser() throws Exception {
         String phone = InputPhoneNumber.getText().toString();
-        String password = Hash.sha512(InputPassword.getText().toString());
+        String password = sha512(InputPassword.getText().toString());
 
         if(TextUtils.isEmpty(phone))
         {
