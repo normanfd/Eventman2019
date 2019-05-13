@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.eventman2019.Model.Hash;
 import com.example.eventman2019.Model.Users;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
@@ -45,7 +46,11 @@ public class LoginActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser();
+                try {
+                    loginUser();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         AdminLink.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +73,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser() {
+    private void loginUser() throws Exception {
         String phone = InputPhoneNumber.getText().toString();
-        String password = InputPassword.getText().toString();
+        String password = Hash.sha512(InputPassword.getText().toString());
 
         if(TextUtils.isEmpty(phone))
         {
