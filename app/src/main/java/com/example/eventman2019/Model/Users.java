@@ -1,16 +1,18 @@
 package com.example.eventman2019.Model;
 
+import static com.example.eventman2019.Model.Hash.sha512;
+
 public class Users {
     private String name, phone, email, password, image, address;
 
     public Users() {
     }
 
-    public Users(String name, String phone, String email, String password, String image, String address) {
+    public Users(String name, String phone, String email, String password, String image, String address) throws Exception {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.password = password;
+        this.password = sha512(password);
         this.image = image;
         this.address = address;
     }

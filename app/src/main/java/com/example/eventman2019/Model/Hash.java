@@ -2,7 +2,7 @@ package com.example.eventman2019.Model;
 import java.security.MessageDigest;
 
 public class Hash {
-    public String sha512(String s) throws java.lang.Exception {
+    public static String sha512(String s) throws java.lang.Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] digest = md.digest(s.getBytes());
         StringBuilder sb = new StringBuilder();
