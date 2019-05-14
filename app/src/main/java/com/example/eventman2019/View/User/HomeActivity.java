@@ -136,11 +136,13 @@ public class HomeActivity extends AppCompatActivity
                                         if (type.equals("Admin")){
                                             Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
                                             intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category", "konveksi");
                                             startActivity(intent);
                                         }
                                         else {
                                             Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
                                             intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category", "konveksi");
                                             startActivity(intent);
                                         }
 
@@ -184,6 +186,7 @@ public class HomeActivity extends AppCompatActivity
                                         if (type.equals("Admin")){
                                             Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
                                             intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category", "konsumsi");
                                             startActivity(intent);
                                         }
                                         else {
@@ -233,11 +236,13 @@ public class HomeActivity extends AppCompatActivity
                                         if (type.equals("Admin")){
                                             Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
                                             intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category","logistik");
                                             startActivity(intent);
                                         }
                                         else {
                                             Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
                                             intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category", "logistik");
                                             startActivity(intent);
                                         }
 

@@ -83,14 +83,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                 productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime);
 
         cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
-                .child("Products").child(productID)
+                .child("Products").child(category).child(productID)
                 .setValue(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
-                                    .child("Products").child(productID)
+                                    .child("Products").child(category).child(productID)
                                     .setValue(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

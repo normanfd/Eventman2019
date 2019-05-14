@@ -23,7 +23,7 @@ public class AdminMaintenanceActivity extends AppCompatActivity {
     private EditText name, price, desc;
     private ImageView imageView;
 
-    private String productID = "";
+    private String productID = "", category = "";
     private DatabaseReference productRef;
 
 
@@ -34,7 +34,9 @@ public class AdminMaintenanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_maintenance);
 
         productID =getIntent().getStringExtra("pid");
-        productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productID);
+        category = getIntent().getStringExtra("category");
+
+        productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(category).child(productID);
 
         applyChangesBtn = findViewById(R.id.apply_chg_btn);
         name = findViewById(R.id.product_name_maintain);
