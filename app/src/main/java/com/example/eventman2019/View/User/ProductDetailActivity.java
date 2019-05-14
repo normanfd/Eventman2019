@@ -56,7 +56,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(state.equals("Order placed") || state.equals("Order shipped")){
                     Toast.makeText(ProductDetailActivity.this, "you can add purchase products, once your order is shipped or confirmed", Toast.LENGTH_LONG ).show();
-                }else {
+                }
+                else {
                     addingToCartList();
                 }
             }
@@ -83,14 +84,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                 productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime);
 
         cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
-                .child("Products").child(category).child(productID)
+                .child("Products").child(productID)
                 .setValue(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
-                                    .child("Products").child(category).child(productID)
+                                    .child("Products").child(productID)
                                     .setValue(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
