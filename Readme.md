@@ -15,7 +15,7 @@
 
 Use case diagram
 
-<img src="https://github.com/normanfd/Eventman2019/blob/master/img/eventman_usecase.jpg">
+<img src="https://github.com/normanfd/Eventman2019/blob/master/img/eventman_usecase.png">
 
 # Activity Diagram
 [`^ kembali ke atas ^`](#)
