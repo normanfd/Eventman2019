@@ -13,7 +13,7 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/eventman" />
 
     <EditText
         android:id="@+id/register_username_input"
