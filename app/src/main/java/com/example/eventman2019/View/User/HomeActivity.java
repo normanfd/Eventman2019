@@ -17,8 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import com.example.eventman2019.Model.Konveksi;
+import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
 import com.example.eventman2019.View.Admin.AdminMaintenanceActivity;
@@ -38,6 +40,8 @@ public class HomeActivity extends AppCompatActivity
     private DatabaseReference ProductRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+    private Button konsumsibtn,konveksibtn,logistikbtn;
+    private String category= "";
 
     private String type = "";
 
@@ -47,9 +51,16 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        konveksibtn = (Button) findViewById(R.id.konveksi_btn_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        konveksibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category = "konveksi";
+            }
+        });
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (bundle != null)
@@ -57,8 +68,6 @@ public class HomeActivity extends AppCompatActivity
             type = getIntent().getExtras().get("Admin").toString();
         }
 
-
-        ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         Paper.init(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -99,51 +108,156 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        //nantinya bakal ditampilin ke recycleview
-        //import dari firebaseUI dengan query tertentu
-        FirebaseRecyclerOptions<Konveksi> options =
-                new FirebaseRecyclerOptions.Builder<Konveksi>()
-                        .setQuery(ProductRef, Konveksi.class)
-                        .build();
-        FirebaseRecyclerAdapter<Konveksi, ProductViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Konveksi, ProductViewHolder>(options) {
-                    @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Konveksi model) {
-                        holder.txtProductName.setText(model.getProductname());
-                        holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
-                        Picasso.get().load(model.getImage()).into(holder.imageView);
+        konveksibtn = (Button) findViewById(R.id.konveksi_btn_home);
+        konsumsibtn = (Button) findViewById(R.id.konsumsi_btn_home);
+        logistikbtn = (Button) findViewById(R.id.logistik_btn_home);
 
-
-
-                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        konveksibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category = "konveksi";
+                ProductRef = FirebaseDatabase.getInstance().getReference().child("Products").child(category);
+                FirebaseRecyclerOptions<Product> options =
+                        new FirebaseRecyclerOptions.Builder<Product>()
+                                .setQuery(ProductRef, Product.class)
+                                .build();
+                FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
+                        new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
                             @Override
-                            public void onClick(View v) {
-                                if (type.equals("Admin")){
-                                    Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
-                                    intent.putExtra("pid", model.getPid());
-                                    startActivity(intent);
-                                }
-                                else {
-                                    Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
-                                    intent.putExtra("pid", model.getPid());
-                                    startActivity(intent);
-                                }
+                            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
+                                holder.txtProductName.setText(model.getProductname());
+                                holder.txtProductDescription.setText(model.getDescription());
+                                holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
+                                Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (type.equals("Admin")){
+                                            Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            startActivity(intent);
+                                        }
+                                        else {
+                                            Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            startActivity(intent);
+                                        }
+
+                                    }
+                                });
                             }
-                        });
-                    }
 
-                    @NonNull
-                    @Override
-                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent,false);
-                        ProductViewHolder holder = new ProductViewHolder(view);
-                        return holder;
-                    }
-                };
-        recyclerView.setAdapter(adapter);
-        adapter.startListening();
+                            @NonNull
+                            @Override
+                            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
+                                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent,false);
+                                ProductViewHolder holder = new ProductViewHolder(view);
+                                return holder;
+                            }
+                        };
+                recyclerView.setAdapter(adapter);
+                adapter.startListening();
+            }
+        });
+        konsumsibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category = "konsumsi";
+                ProductRef = FirebaseDatabase.getInstance().getReference().child("Products").child(category);
+                FirebaseRecyclerOptions<Product> options =
+                        new FirebaseRecyclerOptions.Builder<Product>()
+                                .setQuery(ProductRef, Product.class)
+                                .build();
+                FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
+                        new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+                            @Override
+                            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
+                                holder.txtProductName.setText(model.getProductname());
+                                holder.txtProductDescription.setText(model.getDescription());
+                                holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
+                                Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (type.equals("Admin")){
+                                            Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            startActivity(intent);
+                                        }
+                                        else {
+                                            Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            intent.putExtra("category","konsumsi");
+                                            startActivity(intent);
+                                        }
+
+                                    }
+                                });
+                            }
+
+                            @NonNull
+                            @Override
+                            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
+                                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent,false);
+                                ProductViewHolder holder = new ProductViewHolder(view);
+                                return holder;
+                            }
+                        };
+                recyclerView.setAdapter(adapter);
+                adapter.startListening();
+            }
+        });
+        logistikbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category = "logistik";
+                ProductRef = FirebaseDatabase.getInstance().getReference().child("Products").child(category);
+                FirebaseRecyclerOptions<Product> options =
+                        new FirebaseRecyclerOptions.Builder<Product>()
+                                .setQuery(ProductRef, Product.class)
+                                .build();
+                FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
+                        new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+                            @Override
+                            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
+                                holder.txtProductName.setText(model.getProductname());
+                                holder.txtProductDescription.setText(model.getDescription());
+                                holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
+                                Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (type.equals("Admin")){
+                                            Intent intent = new Intent(HomeActivity.this, AdminMaintenanceActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            startActivity(intent);
+                                        }
+                                        else {
+                                            Intent intent = new Intent(HomeActivity.this,ProductDetailActivity.class);
+                                            intent.putExtra("pid", model.getPid());
+                                            startActivity(intent);
+                                        }
+
+                                    }
+                                });
+                            }
+
+                            @NonNull
+                            @Override
+                            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
+                                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent,false);
+                                ProductViewHolder holder = new ProductViewHolder(view);
+                                return holder;
+                            }
+                        };
+                recyclerView.setAdapter(adapter);
+                adapter.startListening();
+            }
+        });
+
     }
     @Override
     public void onBackPressed() {

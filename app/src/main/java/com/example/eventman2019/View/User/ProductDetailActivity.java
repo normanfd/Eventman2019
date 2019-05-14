@@ -33,13 +33,14 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ImageView product_Image;
     private ElegantNumberButton numberBtn;
     private TextView productPriceDetail, prouctDescriptionDetail, productNameDetail;
-    private String productID="",state = "Normal";
+    private String productID="",category="",state = "Normal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         productID =getIntent().getStringExtra("pid");
+        category = getIntent().getStringExtra("category");
 
         numberBtn = (ElegantNumberButton)findViewById(R.id.number_btn);
         product_Image = (ImageView) findViewById(R.id.product_image_detail);
@@ -48,7 +49,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         prouctDescriptionDetail = (TextView) findViewById(R.id.product_description_detail);
         addToCartBtn = (Button)findViewById(R.id.pd_add_to_cart_btn);
 
-        getProductDetail(productID);
+        getProductDetail(productID,category);
 
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +107,8 @@ public class ProductDetailActivity extends AppCompatActivity {
                 });
     }
 
-    private void getProductDetail(String productID) {
-        DatabaseReference productsref = FirebaseDatabase.getInstance().getReference().child("Products");
+    private void getProductDetail(String productID, String category) {
+        DatabaseReference productsref = FirebaseDatabase.getInstance().getReference().child("Products").child(category);
         productsref.child(productID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

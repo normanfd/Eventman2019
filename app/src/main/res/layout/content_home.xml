@@ -9,11 +9,32 @@
         tools:context=".View.User.HomeActivity"
         tools:showIn="@layout/app_bar_home">
 
+    <Button
+            android:id="@+id/konveksi_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Konveksi"
+    />
+    <Button
+            android:id="@+id/logistik_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logistik"
+            android:layout_centerHorizontal="true"
+    />
+    <Button
+            android:id="@+id/konsumsi_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Konsumsi"
+            android:layout_alignParentRight="true"
+    />
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
+            android:layout_below="@id/konveksi_btn_home"
     >
     </android.support.v7.widget.RecyclerView>
 
