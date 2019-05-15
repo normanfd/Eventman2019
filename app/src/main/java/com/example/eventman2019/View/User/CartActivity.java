@@ -91,7 +91,8 @@ public class CartActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         CharSequence options[] = new CharSequence[]
                                 {
-                                        "Edit","Remove"
+//                                        "Edit",
+                                        "Remove"
                                 };
                         AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
                         builder.setTitle("Cart Options");
@@ -100,13 +101,13 @@ public class CartActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
                                 //Jika indeks == 0 atau edit maka kita lempar ke Product detail activity dengan pid tertentu
-                                if(i == 0){
-                                    Intent intent =new Intent(CartActivity.this, ProductDetailActivity.class);
-                                    intent.putExtra("pid", model.getPid());
-                                    startActivity(intent);
-                                }
+//                                if(i == 0){
+//                                    Intent intent =new Intent(CartActivity.this, ProductDetailActivity.class);
+//                                    intent.putExtra("pid", model.getPid());
+//                                    startActivity(intent);
+//                                }
                                 // Jika indeks == 1 atau Remove maka hapus dengan pid tertentu
-                                if (i ==1){
+                                if (i ==0){
                                     cartListRef.child("User View")
                                             .child(Prevalent.CurrentOnlineUser.getPhone())
                                             .child("Products")
