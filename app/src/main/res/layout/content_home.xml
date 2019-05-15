@@ -11,23 +11,29 @@
 
     <Button
             android:id="@+id/konveksi_btn_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="Konveksi"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
     />
     <Button
             android:id="@+id/logistik_btn_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="Logistik"
             android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
     />
     <Button
             android:id="@+id/konsumsi_btn_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="Konsumsi"
             android:layout_alignParentRight="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
     />
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_menu"
