@@ -19,7 +19,7 @@
                 android:id="@+id/search_product_name"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:hint="Product name"
+                android:hint="Klik kategori terlebih dahulu"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -42,11 +42,47 @@
                 android:layout_centerInParent="true"
         />
     </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/r6"
+            android:layout_below="@+id/r5"
+    >
+        <Button
+                android:id="@+id/konveksi_btn_home"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="Konveksi"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+        />
+        <Button
+                android:id="@+id/logistik_btn_home"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="Logistik"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+        />
+        <Button
+                android:id="@+id/konsumsi_btn_home"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="Konsumsi"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+        />
+
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
             android:id="@+id/search_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/r5">
+            android:layout_below="@+id/r6">
 
     </android.support.v7.widget.RecyclerView>
 
