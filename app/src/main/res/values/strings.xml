@@ -18,4 +18,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="add_product">Add Product</string>
+    <string name="product_price">Product Price...</string>
+    <string name="product_description">Product Description...</string>
+    <string name="product_name">Product Name...</string>
 </resources>
