@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +69,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else if(!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
             Toast.makeText(this, "Please write valid phone number", Toast.LENGTH_SHORT).show();
+        }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Please write valid email address", Toast.LENGTH_SHORT).show();
         }
         else{
             loadingBar.setTitle("Create account");
