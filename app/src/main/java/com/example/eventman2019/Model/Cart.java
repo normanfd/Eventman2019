@@ -1,18 +1,19 @@
 package com.example.eventman2019.Model;
 
 public class Cart {
-    private String pid, productName, price, quantity, date, time;
+    private String pid, productName, price, quantity, date, time, category;
 
     public Cart() {
     }
 
-    public Cart(String pid, String productName, String price, String quantity, String date, String time) {
+    public Cart(String pid, String productName, String price, String quantity, String date, String time, String category) {
         this.pid = pid;
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;
         this.date = date;
         this.time = time;
+        this.category = category;
     }
 
     public String getPid() {

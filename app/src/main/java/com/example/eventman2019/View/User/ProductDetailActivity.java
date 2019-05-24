@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.eventman2019.Model.Cart;
+import com.example.eventman2019.Model.Konveksi;
 import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.Prevalent.Prevalent;
 import com.example.eventman2019.R;
@@ -81,7 +82,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         final DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("cart list");
         final Cart cartMap = new Cart(productID, productNameDetail.getText().toString(),
-                productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime);
+                productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime,category);
 
         cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
                 .child("Products").child(productID)
