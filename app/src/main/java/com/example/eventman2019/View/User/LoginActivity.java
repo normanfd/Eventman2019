@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please write your password", Toast.LENGTH_SHORT).show();
         }
-        else if(PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
+        else if(!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
             Toast.makeText(this, "Please write valid phone number", Toast.LENGTH_SHORT).show();
         }
         else{

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +65,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else if(TextUtils.isEmpty(password)){
             Toast.makeText(this, "Please write your password", Toast.LENGTH_SHORT).show();
+        }
+        else if(!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
+            Toast.makeText(this, "Please write valid phone number", Toast.LENGTH_SHORT).show();
         }
         else{
             loadingBar.setTitle("Create account");
