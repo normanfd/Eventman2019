@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.example.eventman2019.Model.Konsumsi;
 import com.example.eventman2019.Model.Product;
 import com.example.eventman2019.R;
 import com.google.android.gms.tasks.*;
@@ -146,7 +147,7 @@ public class AddKonsumsiActivity extends AppCompatActivity {
     }
 
     private void SaveProductInfoToDatabase() {
-        Product product = new Product(CategoryName, saveCurrentDate,
+        Konsumsi product = new Konsumsi(CategoryName, saveCurrentDate,
                 Description, DownloadImageUrl, productRandomKey,
                 Price,Productname, saveCurrentTime);
 
