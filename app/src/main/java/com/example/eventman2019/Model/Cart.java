@@ -53,22 +53,22 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    //get nilai tanggal pemesanan suatu produk dilkaukan
+    //get nilai tanggal produk dimasukkan ke dalam cart
     public String getDate() {
         return date;
     }
 
-    //set nilai tanggal pemesanan suatu produk dilakukan
+    //set nilai tanggal produk dimasukkan ke dalam cart
     public void setDate(String date) {
         this.date = date;
     }
 
-    //get waktu (Jam:Menit:Detik AM/PM) pemesanan suatu produk dilakukan
+    //get waktu (Jam:Menit:Detik AM/PM) produk dimasukkan ke dalam cart
     public String getTime() {
         return time;
     }
 
-    //set waktu (Jam:Menit:Detik AM/PM) pemesanan suatu produk dilakukan
+    //set waktu (Jam:Menit:Detik AM/PM) produk dimasukkan ke dalam cart
     public void setTime(String time) {
         this.time = time;
     }
