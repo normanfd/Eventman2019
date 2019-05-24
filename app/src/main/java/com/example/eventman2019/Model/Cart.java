@@ -13,12 +13,12 @@ public class Cart {
         this.category = category;
     }
 
-    //get pid (id pemesanan suatu produk)
+    //get id produk
     public String getPid() {
         return pid;
     }
 
-    //set pid (id pemesanan suatu produk)
+    //set id produk
     public void setPid(String pid) {
         this.pid = pid;
     }

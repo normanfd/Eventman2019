@@ -18,6 +18,7 @@ public class Product {
         this.time = time;
     }
 
+    //getter & setter kategori suatu produk
     public String getCategory() {
         return category;
     }
@@ -26,6 +27,7 @@ public class Product {
         this.category = category;
     }
 
+    //getter & setter tanggal produk ditambahkan atau mulai dijual
     public String getDate() {
         return date;
     }
@@ -34,6 +36,7 @@ public class Product {
         this.date = date;
     }
 
+    //getter & setter deskripsi produk
     public String getDescription() {
         return description;
     }
@@ -42,6 +45,7 @@ public class Product {
         this.description = description;
     }
 
+    //getter & setter gambar produk
     public String getImage() {
         return image;
     }
@@ -50,6 +54,7 @@ public class Product {
         this.image = image;
     }
 
+    //getter & setter id produk
     public String getPid() {
         return pid;
     }
@@ -58,6 +63,7 @@ public class Product {
         this.pid = pid;
     }
 
+    //getter & setter harga produk
     public String getPrice() {
         return price;
     }
@@ -66,6 +72,7 @@ public class Product {
         this.price = price;
     }
 
+    //getter & setter nama produk
     public String getProductname() {
         return productname;
     }
@@ -74,6 +81,7 @@ public class Product {
         this.productname = productname;
     }
 
+    //getter & setter waktu (Jam:Menit:Detik AM/PM) produk ditambahkan atau mulai dijual
     public String getTime() {
         return time;
     }
