@@ -49,16 +49,16 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private void check() {
         if(TextUtils.isEmpty(nameEditText.getText().toString())){
-            Toast.makeText(this, "Please provide your full name..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide your full name", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phoneEditText.getText().toString())){
-            Toast.makeText(this, "Please provide your phone number..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide your phone number", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(addressEditText.getText().toString())){
-            Toast.makeText(this, "Please provide your address..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide your address", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(cityEditText.getText().toString())){
-            Toast.makeText(this, "Please provide your city name..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide your city name", Toast.LENGTH_SHORT).show();
         }
         else {
             confirmOrder();

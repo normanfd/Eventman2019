@@ -3,9 +3,6 @@ package com.example.eventman2019.Model;
 public class Users {
     private String name, phone, email, password, image, address;
 
-    public Users() {
-    }
-
     public Users(String name, String phone, String email, String password, String image, String address) throws Exception {
         this.name = name;
         this.phone = phone;
