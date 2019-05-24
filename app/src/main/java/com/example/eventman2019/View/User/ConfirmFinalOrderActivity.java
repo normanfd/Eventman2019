@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.eventman2019.Model.Order;
 import com.example.eventman2019.Prevalent.Prevalent;
@@ -25,6 +26,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
     private Button confirmOrderBtn;
+    private TextView totalPrice;
     private String totalAmount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         addressEditText = (EditText) findViewById(R.id.shipment_address);
         cityEditText = (EditText) findViewById(R.id.shipment_city);
         totalAmount = getIntent().getStringExtra("Total Price");
+        totalPrice = findViewById(R.id.total_price);
+        totalPrice.setText(totalAmount);
         Toast.makeText(this, "Total Price = " + totalAmount , Toast.LENGTH_SHORT).show();
 
         confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
