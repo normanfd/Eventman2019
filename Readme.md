@@ -8,7 +8,10 @@
 
 <img src="app/src/main/res/drawable/eventman.jpg">
 
-**Eventman** adalah perangkat lunak yang ...
+**Eventman** adalah perangkat lunak yang berfungsi menjembatani para penyedia event dengan para vendor yang menyediakan alat-alat kebutuhan event. Di dalam aplikasi ini, para penyedia event (User) yang membutuhkan barang-barang keperluan event seperti panggung, kursi, baju kepanitian, serta makanan dapat mendapatkan kebutuhan tersebut dengan memesan lewat apps **Eventman** ini. Adapun kategori-kategori produk yang tersedia di aplikasi ini adalah
+- Logistik
+- Konsumsi
+- Konveksi
 
 # Use Case Diagram
 [`^ kembali ke atas ^`](#)
