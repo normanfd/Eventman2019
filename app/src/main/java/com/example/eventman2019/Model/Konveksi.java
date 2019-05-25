@@ -2,6 +2,9 @@ package com.example.eventman2019.Model;
 
 public class Konveksi extends Product {
 
+    public Konveksi() {
+    }
+
     public int Total;
 
     public Konveksi(String category, String date, String description, String image, String pid, String price, String productname, String time) {

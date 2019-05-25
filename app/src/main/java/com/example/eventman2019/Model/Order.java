@@ -4,6 +4,9 @@ public class Order {
 
     private String name, phone, address, city, state, date, time, totalAmount;
 
+    public Order() {
+    }
+
     public Order(String name, String phone, String address, String city, String state, String date, String time, String totalAmount) {
         this.name = name;
         this.phone = phone;
