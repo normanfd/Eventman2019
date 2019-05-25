@@ -34,7 +34,7 @@ Sequence Diagram
 
 Class diagram
 
-<img src="https://github.com/normanfd/Eventman2019/blob/master/img/class_diagram.jpg">
+<img src="https://github.com/normanfd/Eventman2019/blob/master/img/class_diagram.png">
 
 # Pembahasan
 [`^ kembali ke atas ^`](#)
