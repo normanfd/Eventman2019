@@ -5,10 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.eventman2019.Model.Cart;
@@ -34,7 +31,9 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ImageView product_Image;
     private ElegantNumberButton numberBtn;
     private TextView productPriceDetail, prouctDescriptionDetail, productNameDetail;
-    private String productID="",category="",state = "Normal";
+    private String productID="",category="",state = "Normal", stringketerangan="";
+    private TextView keterangan;
+    private EditText keteranganvalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,12 @@ public class ProductDetailActivity extends AppCompatActivity {
         productNameDetail = (TextView) findViewById(R.id.product_name_detail);
         prouctDescriptionDetail = (TextView) findViewById(R.id.product_description_detail);
         addToCartBtn = (Button)findViewById(R.id.pd_add_to_cart_btn);
+        keterangan = (TextView) findViewById(R.id.keterangan);
+        keteranganvalue = (EditText) findViewById(R.id.keterangan_value);
+        if (category.equals("konveksi")){
+            keterangan.setVisibility(View.VISIBLE);
+            keteranganvalue.setVisibility(View.VISIBLE);
+        }
 
         getProductDetail(productID,category);
 
@@ -56,7 +61,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(state.equals("Order placed") || state.equals("Order shipped")){
-                    Toast.makeText(ProductDetailActivity.this, "you can add purchase products once your order is shipped or confirmed", Toast.LENGTH_LONG ).show();
+                    Toast.makeText(ProductDetailActivity.this, "you can add purchase products, once your order is shipped or confirmed", Toast.LENGTH_LONG ).show();
                 }
                 else {
                     addingToCartList();
@@ -79,10 +84,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         saveCurrentDate = currentDate.format(calForDate.getTime());
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calForDate.getTime());
-
+        if (category.equals("konveksi")){
+            stringketerangan = keteranganvalue.getText().toString();
+        }
         final DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("cart list");
         final Cart cartMap = new Cart(productID, productNameDetail.getText().toString(),
-                productPriceDetail.getText().toString(), numberBtn.getNumber(), saveCurrentDate, saveCurrentTime,category);
+                productPriceDetail.getText().toString(), numberBtn.getNumber(),
+                saveCurrentDate, saveCurrentTime,category, stringketerangan);
 
         cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
                 .child("Products").child(productID)
